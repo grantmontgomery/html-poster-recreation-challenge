@@ -1,11 +1,6 @@
-const dates = [
-  "Oct 9, 2009",
-  "Sep 21, 2007",
-  "Jan 15, 2008",
-  "Dec 31, 2008",
-  "Jan 1, 2009",
-  "Sep 22, 2007",
-];
+//Insert date array in the command line
+
+//example command: node question1.js 'Oct 9, 2008' 'Sep 3, 2009' 'Nov 3, 2009'
 
 const months = [
   "jan",
@@ -22,12 +17,18 @@ const months = [
   "dec",
 ];
 
-const dateScore = (dateString) => {
+const calculateDateScore = (dateString) => {
   const destructDateString = dateString.split(" ");
   const month = destructDateString[0];
 
-  //the task didn't mention the months having different cases. I implemented a toLowerCase step to make sure that the input wasn't case sensitive.
+  //the task didn't mention the months having different cases. I implemented a toLowerCase step to make sure that the input didn't need to be case sensitive.
   const monthIndex = months.indexOf(month.toLowerCase());
+  if (monthIndex == -1) {
+    const currentIndex = process.argv.indexOf(dateString);
+    throw new Error(
+      `Month is mispelled on index ${currentIndex - 2} of argument array.`
+    );
+  }
   const days = parseInt(destructDateString[1].replace(",", ""));
   const year = parseInt(destructDateString[2]);
 
@@ -40,8 +41,17 @@ const dateScore = (dateString) => {
   return yearScore + monthScore + days;
 };
 
-const sortDates = (dateStrings) => {
-  return dateStrings.sort((a, b) => dateScore(b) - dateScore(a));
+const sortDates = () => {
+  if (!process.argv[2]) throw new Error("No array argument present.");
+  let indexCount = 2;
+  const argumentArray = [];
+  while (process.argv[indexCount]) {
+    argumentArray.push(process.argv[indexCount]);
+    indexCount++;
+  }
+  return argumentArray.sort(
+    (a, b) => calculateDateScore(b) - calculateDateScore(a)
+  );
 };
 
-console.log(sortDates(dates));
+console.log(sortDates());
