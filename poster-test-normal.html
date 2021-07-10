@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grant Montgomery Poster Test</title>
     <style>
+      :root {
+        --positionX: 0;
+        --positionY: 0;
+      }
       .poster-wrapper {
         left: 50%;
         transform: translate(-50%, -50%);
@@ -13,37 +17,351 @@
         font-family: monospace;
         display: grid;
         top: 50%;
-        animation: slidein;
-        animation-duration: 3s;
+        animation: fadein;
+        animation-duration: 1s;
         animation-delay: 0.5s;
-        grid-template-columns: 100%;
         overflow: hidden;
+        opacity: 0;
+        grid-template: repeat(10, 10%) / repeat(10, 10%);
         animation-fill-mode: forwards;
-        grid-template-rows: auto 68.709%;
-        width: 0;
+        width: 48.38vh;
       }
-      .pink-section {
-        background: #fac8be;
+      .cell {
         height: 100%;
         width: 100%;
-        grid-column: 1;
-        grid-row: 1;
+        z-index: 3;
+      }
+      .cell:nth-child(1):hover ~ .poster-content {
+        transform: translate(10px, 10px);
+      }
+      .cell:nth-child(2):hover ~ .poster-content {
+        transform: translate(8px, 10px);
+      }
+      .cell:nth-child(3):hover ~ .poster-content {
+        transform: translate(6px, 10px);
+      }
+      .cell:nth-child(4):hover ~ .poster-content {
+        transform: translate(4px, 10px);
+      }
+      .cell:nth-child(5):hover ~ .poster-content {
+        transform: translate(2px, 10px);
+      }
+      .cell:nth-child(6):hover ~ .poster-content {
+        transform: translate(-2px, 10px);
+      }
+      .cell:nth-child(7):hover ~ .poster-content {
+        transform: translate(-4px, 10px);
+      }
+      .cell:nth-child(8):hover ~ .poster-content {
+        transform: translate(-6px, 10px);
+      }
+      .cell:nth-child(9):hover ~ .poster-content {
+        transform: translate(-8px, 10px);
+      }
+      .cell:nth-child(10):hover ~ .poster-content {
+        transform: translate(-10px, 10px);
+      }
+      .cell:nth-child(11):hover ~ .poster-content {
+        transform: translate(10px, 8px);
+      }
+      .cell:nth-child(12):hover ~ .poster-content {
+        transform: translate(8px, 8px);
+      }
+      .cell:nth-child(13):hover ~ .poster-content {
+        transform: translate(6px, 8px);
+      }
+      .cell:nth-child(14):hover ~ .poster-content {
+        transform: translate(4px, 8px);
+      }
+      .cell:nth-child(15):hover ~ .poster-content {
+        transform: translate(2px, 8px);
+      }
+      .cell:nth-child(16):hover ~ .poster-content {
+        transform: translate(-2px, 8px);
+      }
+      .cell:nth-child(17):hover ~ .poster-content {
+        transform: translate(-4px, 8px);
+      }
+      .cell:nth-child(18):hover ~ .poster-content {
+        transform: translate(-6px, 8px);
+      }
+      .cell:nth-child(19):hover ~ .poster-content {
+        transform: translate(-8px, 8px);
+      }
+      .cell:nth-child(20):hover ~ .poster-content {
+        transform: translate(-10px, 8px);
+      }
+      .cell:nth-child(21):hover ~ .poster-content {
+        transform: translate(10px, 6px);
+      }
+      .cell:nth-child(22):hover ~ .poster-content {
+        transform: translate(8px, 6px);
+      }
+      .cell:nth-child(23):hover ~ .poster-content {
+        transform: translate(6px, 6px);
+      }
+      .cell:nth-child(24):hover ~ .poster-content {
+        transform: translate(4px, 6px);
+      }
+      .cell:nth-child(25):hover ~ .poster-content {
+        transform: translate(2px, 6px);
+      }
+      .cell:nth-child(26):hover ~ .poster-content {
+        transform: translate(-2px, 6px);
+      }
+      .cell:nth-child(27):hover ~ .poster-content {
+        transform: translate(-4px, 6px);
+      }
+      .cell:nth-child(28):hover ~ .poster-content {
+        transform: translate(-6px, 6px);
+      }
+      .cell:nth-child(29):hover ~ .poster-content {
+        transform: translate(-8px, 6px);
+      }
+      .cell:nth-child(30):hover ~ .poster-content {
+        transform: translate(-10px, 6px);
+      }
+      .cell:nth-child(31):hover ~ .poster-content {
+        transform: translate(10px, 4px);
+      }
+      .cell:nth-child(32):hover ~ .poster-content {
+        transform: translate(8px, 4px);
+      }
+      .cell:nth-child(33):hover ~ .poster-content {
+        transform: translate(6px, 4px);
+      }
+      .cell:nth-child(34):hover ~ .poster-content {
+        transform: translate(4px, 4px);
+      }
+      .cell:nth-child(35):hover ~ .poster-content {
+        transform: translate(2px, 4px);
+      }
+      .cell:nth-child(36):hover ~ .poster-content {
+        transform: translate(-2px, 4px);
+      }
+      .cell:nth-child(37):hover ~ .poster-content {
+        transform: translate(-4px, 4px);
+      }
+      .cell:nth-child(38):hover ~ .poster-content {
+        transform: translate(-6px, 4px);
+      }
+      .cell:nth-child(39):hover ~ .poster-content {
+        transform: translate(-8px, 4px);
+      }
+      .cell:nth-child(40):hover ~ .poster-content {
+        transform: translate(-10px, 4px);
+      }
+      .cell:nth-child(41):hover ~ .poster-content {
+        transform: translate(10px, 2px);
+      }
+      .cell:nth-child(42):hover ~ .poster-content {
+        transform: translate(8px, 2px);
+      }
+      .cell:nth-child(43):hover ~ .poster-content {
+        transform: translate(6px, 2px);
+      }
+      .cell:nth-child(44):hover ~ .poster-content {
+        transform: translate(4px, 2px);
+      }
+      .cell:nth-child(45):hover ~ .poster-content {
+        transform: translate(2px, 2px);
+      }
+      .cell:nth-child(46):hover ~ .poster-content {
+        transform: translate(-2px, 2px);
+      }
+      .cell:nth-child(47):hover ~ .poster-content {
+        transform: translate(-4px, 2px);
+      }
+      .cell:nth-child(48):hover ~ .poster-content {
+        transform: translate(-6px, 2px);
+      }
+      .cell:nth-child(49):hover ~ .poster-content {
+        transform: translate(-8px, 2px);
+      }
+      .cell:nth-child(50):hover ~ .poster-content {
+        transform: translate(-10px, 2px);
+      }
+      .cell:nth-child(51):hover ~ .poster-content {
+        transform: translate(10px, -2px);
+      }
+      .cell:nth-child(52):hover ~ .poster-content {
+        transform: translate(8px, -2px);
+      }
+      .cell:nth-child(53):hover ~ .poster-content {
+        transform: translate(6px, -2px);
+      }
+      .cell:nth-child(54):hover ~ .poster-content {
+        transform: translate(4px, -2px);
+      }
+      .cell:nth-child(55):hover ~ .poster-content {
+        transform: translate(2px, -2px);
+      }
+      .cell:nth-child(56):hover ~ .poster-content {
+        transform: translate(-2px, -2px);
+      }
+      .cell:nth-child(57):hover ~ .poster-content {
+        transform: translate(-4px, -2px);
+      }
+      .cell:nth-child(58):hover ~ .poster-content {
+        transform: translate(-6px, -2px);
+      }
+      .cell:nth-child(59):hover ~ .poster-content {
+        transform: translate(-8px, -2px);
+      }
+      .cell:nth-child(60):hover ~ .poster-content {
+        transform: translate(-2px, -2px);
+      }
+      .cell:nth-child(61):hover ~ .poster-content {
+        transform: translate(10px, -4px);
+      }
+      .cell:nth-child(62):hover ~ .poster-content {
+        transform: translate(8px, -4px);
+      }
+      .cell:nth-child(63):hover ~ .poster-content {
+        transform: translate(6px, -4px);
+      }
+      .cell:nth-child(64):hover ~ .poster-content {
+        transform: translate(4px, -4px);
+      }
+      .cell:nth-child(65):hover ~ .poster-content {
+        transform: translate(2px, -4px);
+      }
+      .cell:nth-child(66):hover ~ .poster-content {
+        transform: translate(-2px, -4px);
+      }
+      .cell:nth-child(67):hover ~ .poster-content {
+        transform: translate(-4px, -4px);
+      }
+      .cell:nth-child(68):hover ~ .poster-content {
+        transform: translate(-6px, -4px);
+      }
+      .cell:nth-child(69):hover ~ .poster-content {
+        transform: translate(-8px, -4px);
+      }
+      .cell:nth-child(70):hover ~ .poster-content {
+        transform: translate(-10px, -4px);
+      }
+      .cell:nth-child(71):hover ~ .poster-content {
+        transform: translate(10px, -6px);
+      }
+      .cell:nth-child(72):hover ~ .poster-content {
+        transform: translate(8px, -6px);
+      }
+      .cell:nth-child(73):hover ~ .poster-content {
+        transform: translate(6px, -6px);
+      }
+      .cell:nth-child(74):hover ~ .poster-content {
+        transform: translate(4px, -6px);
+      }
+      .cell:nth-child(75):hover ~ .poster-content {
+        transform: translate(2px, -6px);
+      }
+      .cell:nth-child(76):hover ~ .poster-content {
+        transform: translate(-2px, -6px);
+      }
+      .cell:nth-child(77):hover ~ .poster-content {
+        transform: translate(-4px, -6px);
+      }
+      .cell:nth-child(78):hover ~ .poster-content {
+        transform: translate(-6px, -6px);
+      }
+      .cell:nth-child(79):hover ~ .poster-content {
+        transform: translate(-8px, -6px);
+      }
+      .cell:nth-child(80):hover ~ .poster-content {
+        transform: translate(-10px, -6px);
+      }
+      .cell:nth-child(81):hover ~ .poster-content {
+        transform: translate(10px, -8px);
+      }
+      .cell:nth-child(82):hover ~ .poster-content {
+        transform: translate(8px, -8px);
+      }
+      .cell:nth-child(83):hover ~ .poster-content {
+        transform: translate(6px, -8px);
+      }
+      .cell:nth-child(84):hover ~ .poster-content {
+        transform: translate(4px, -8px);
+      }
+      .cell:nth-child(85):hover ~ .poster-content {
+        transform: translate(2px, -8px);
+      }
+      .cell:nth-child(86):hover ~ .poster-content {
+        transform: translate(-2px, -8px);
+      }
+      .cell:nth-child(87):hover ~ .poster-content {
+        transform: translate(-4px, -8px);
+      }
+      .cell:nth-child(88):hover ~ .poster-content {
+        transform: translate(-6px, -8px);
+      }
+      .cell:nth-child(89):hover ~ .poster-content {
+        transform: translate(-8px, -8px);
+      }
+      .cell:nth-child(90):hover ~ .poster-content {
+        transform: translate(-10px, -8px);
+      }
+      .cell:nth-child(91):hover ~ .poster-content {
+        transform: translate(10px, -10px);
+      }
+      .cell:nth-child(92):hover ~ .poster-content {
+        transform: translate(8px, -10px);
+      }
+      .cell:nth-child(93):hover ~ .poster-content {
+        transform: translate(6px, -10px);
+      }
+      .cell:nth-child(94):hover ~ .poster-content {
+        transform: translate(4px, -10px);
+      }
+      .cell:nth-child(95):hover ~ .poster-content {
+        transform: translate(2px, -10px);
+      }
+      .cell:nth-child(96):hover ~ .poster-content {
+        transform: translate(-2px, -10px);
+      }
+      .cell:nth-child(97):hover ~ .poster-content {
+        transform: translate(-4px, -10px);
+      }
+      .cell:nth-child(98):hover ~ .poster-content {
+        transform: translate(-6px, -10px);
+      }
+      .cell:nth-child(99):hover ~ .poster-content {
+        transform: translate(-8px, -10px);
+      }
+      .cell:nth-child(100):hover ~ .poster-content {
+        transform: translate(-10px, -10px);
+      }
+
+      .pink-section {
+        background: #fac8be;
+        height: 31.3%;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        width: 100%;
+      }
+      .poster-content {
+        width: 100%;
+        transition: transform 100ms ease-out;
+        position: absolute;
+        height: 100%;
+        transform: translate(0, 0);
       }
       .blue-section {
         background: #224149;
-        height: 100%;
+        height: 68.7%;
+        bottom: 0;
         width: 100%;
-        grid-column: 1;
-        grid-row: 2;
+        z-index: -1;
+        position: absolute;
       }
-
-      .poster-wrapper > img {
+      .poster-content > img {
         height: 22.138%;
         width: auto;
         position: absolute;
         left: 50.5%;
         bottom: 9.83%;
-        z-index: 3;
+        z-index: 2;
       }
       .cross {
         position: absolute;
@@ -97,7 +415,7 @@
         background: white;
         height: 7.266%;
       }
-      .poster-wrapper > h1 {
+      .poster-content > h1 {
         color: white;
         background: transparent;
         font-weight: 400;
@@ -215,6 +533,7 @@
         position: absolute;
         font-size: 1.33vh;
       }
+
       .ion {
         right: 4.765%;
         color: white;
@@ -227,47 +546,150 @@
         writing-mode: vertical-rl;
         transform: rotateZ(180deg);
         text-align: right;
+        grid-template: repeat(10, 1fr) / repeat(10, 1fr);
         margin: 0;
         position: absolute;
       }
 
-      @keyframes slidein {
+      @keyframes fadein {
         from {
-          width: 0%;
+          opacity: 0;
         }
         to {
-          width: 48.38vh;
+          opacity: 1;
         }
       }
     </style>
   </head>
   <body>
     <main class="poster-wrapper">
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
       <section class="pink-section"></section>
       <section class="blue-section"></section>
-      <h1>
-        The Ethics<br /><span class="of-artificial-line">of</span
-        ><span class="of-artificial-line artificial"> Artificial</span
-        ><br /><span class="intelligence">Intelligence</span><br /><span
-          class="date-time"
-          ><span class="dash">-</span> <span class=""> 11.10.20</span>
-        </span>
-      </h1>
-      <img src="https://i.ibb.co/dM0kC6G/RoverPic.png" />
-      <p class="event-type">WORKSHOP</p>
-      <p class="time">1:00p<br />The Forum</p>
-      <p class="speaker">
-        Schlomo Zilberstein<br /><span>HARVARD UNIVERSITY</span>
-      </p>
-      <p class="ion">ion</p>
-      <div class="place">
-        <p>4201 Main Street<br />Houston, Texas</p>
-        <a href="https://ionhouston.com">IONHOUSTON.COM</a>
+      <div class="poster-content">
+        <h1>
+          The Ethics<br /><span class="of-artificial-line">of</span
+          ><span class="of-artificial-line artificial"> Artificial</span
+          ><br /><span class="intelligence">Intelligence</span><br /><span
+            class="date-time"
+            ><span class="dash">-</span> <span class=""> 11.10.20</span>
+          </span>
+        </h1>
+        <img src="https://i.ibb.co/dM0kC6G/RoverPic.png" />
+        <p class="event-type">WORKSHOP</p>
+        <p class="time">1:00p<br />The Forum</p>
+        <p class="speaker">
+          Schlomo Zilberstein<br /><span>HARVARD UNIVERSITY</span>
+        </p>
+        <p class="ion">ion</p>
+        <div class="place">
+          <p>4201 Main Street<br />Houston, Texas</p>
+          <a href="https://ionhouston.com">IONHOUSTON.COM</a>
+        </div>
+        <div class="cross red"></div>
+        <div class="cross red slash"></div>
+        <div class="cross white"></div>
+        <div class="minus"></div>
       </div>
-      <div class="cross red"></div>
-      <div class="cross red slash"></div>
-      <div class="cross white"></div>
-      <div class="minus"></div>
     </main>
   </body>
 </html>
